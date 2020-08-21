@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestBg.Services;
 using Xamarin.Forms;
 
@@ -22,7 +16,6 @@ namespace TestBg
 
         protected override void OnAppearing()
         {
-            // https://aod-rfi.akamaized.net/savoirs/apprendre/actu/jff/jff-19082020.mp3
             playbackService.Init(@"https://aod-rfi.akamaized.net/savoirs/apprendre/actu/jff/jff-19082020.mp3");
             base.OnAppearing();
         }
@@ -32,8 +25,6 @@ namespace TestBg
             if (isPlaying)
             {
                 playbackService.Pause();
-                /* TODO CurrentItem.MediaProgress = playbackLocation;
-                UpdateHomeItemHistoryBackground();*/
             }
             else
             {

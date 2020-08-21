@@ -13,7 +13,7 @@ namespace TestBg
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
@@ -23,18 +23,6 @@ namespace TestBg
         protected override void OnSleep()
         {
             base.OnSleep();
-            // Handle when your app sleeps
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await DependencyService.Get<IBackgroundService>().PerformFetch();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("FailOnSleep: " + ex.Message + " : " + ex.StackTrace);
-                }
-            });
         }
 
         protected override void OnResume()
