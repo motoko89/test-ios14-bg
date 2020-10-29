@@ -67,6 +67,7 @@ namespace TestBg.iOS.Services
                     default:
                         break;
                 }
+                Debug.WriteLine("Done AVAssetLoadComplete");
             }
             catch (Exception ex)
             {
@@ -112,6 +113,7 @@ namespace TestBg.iOS.Services
         {
             player?.Pause();
             ToPauseSessionState();
+            Debug.WriteLine("PlaybackService.Paused, null? " + (player == null));
         }
 
         private void ToPauseSessionState()
@@ -122,6 +124,7 @@ namespace TestBg.iOS.Services
                 UIApplication.SharedApplication.EndReceivingRemoteControlEvents();
             }
             AVAudioSession.SharedInstance().SetActive(false);
+            Debug.WriteLine("ToPauseSessionState");
         }
 
         private void ToActiveSessionState()
@@ -132,14 +135,24 @@ namespace TestBg.iOS.Services
             UIApplication.SharedApplication.BecomeFirstResponder();
             //}
             var session = AVAudioSession.SharedInstance();
-            session.SetCategory(AVAudioSessionCategory.Playback, AVAudioSessionCategoryOptions.MixWithOthers);
-            session.SetActive(true);
+            var error1 = session.SetCategory(AVAudioSessionCategory.Playback, AVAudioSessionCategoryOptions.MixWithOthers);
+            if (error1 != null)
+            {
+                Debug.WriteLine("error1 " + error1.LocalizedDescription);
+            }
+            bool res2 = session.SetActive(true, AVAudioSessionFlags.NotifyOthersOnDeactivation, out NSError error2);
+            if (error2 != null)
+            {
+                Debug.WriteLine("error2 " + error2.LocalizedDescription);
+            }
+            Debug.WriteLine("ToActiveSessionState() 2 " + res2);
         }
 
         public void Play()
         {
             ToActiveSessionState();
             player?.Play();
+            Debug.WriteLine("PlaybackService.Play, null? " + (player == null));
         }
 
         public Task Play(byte[] data)

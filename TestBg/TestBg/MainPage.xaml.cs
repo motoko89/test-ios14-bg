@@ -16,7 +16,7 @@ namespace TestBg
 
         protected override void OnAppearing()
         {
-            playbackService.Init(@"https://aod-rfi.akamaized.net/savoirs/apprendre/actu/jff/jff-19082020.mp3");
+            playbackService.Init(@"https://aod-rfi.akamaized.net/savoirs/apprendre/actu/jff/JFF-21-10-20.mp3");
             base.OnAppearing();
         }
 

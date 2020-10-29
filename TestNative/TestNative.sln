@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNative", "TestNative.csproj", "{329F6567-3291-40BC-839E-4146B239D57F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{329F6567-3291-40BC-839E-4146B239D57F}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{329F6567-3291-40BC-839E-4146B239D57F}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{329F6567-3291-40BC-839E-4146B239D57F}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{329F6567-3291-40BC-839E-4146B239D57F}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{329F6567-3291-40BC-839E-4146B239D57F}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{329F6567-3291-40BC-839E-4146B239D57F}.Debug|iPhone.Build.0 = Debug|iPhone
+		{329F6567-3291-40BC-839E-4146B239D57F}.Release|iPhone.ActiveCfg = Release|iPhone
+		{329F6567-3291-40BC-839E-4146B239D57F}.Release|iPhone.Build.0 = Release|iPhone
+	EndGlobalSection
+EndGlobal
