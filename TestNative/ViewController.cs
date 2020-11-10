@@ -27,7 +27,7 @@ namespace TestNative
             var asset = new AVUrlAsset(
                     NSUrl.FromString(url),
                     new AVUrlAssetOptions(NSDictionary.FromObjectAndKey(
-                                            NSNumber.FromBoolean(true),
+                                            NSNumber.FromInt32(1),
                                             AVUrlAsset.PreferPreciseDurationAndTimingKey)));
             asset.LoadValuesAsynchronously(new string[] { AVASSET_PLAYABLE_KEY }, () => AVAssetLoadComplete(url, asset));
         }
