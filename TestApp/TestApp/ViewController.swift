@@ -11,6 +11,8 @@ import AVFoundation
 class ViewController: UIViewController {
     var audioPlayer = AVPlayer()
     var playableKey = "playable"
+    
+    var ding = AVAudioPlayer()
     @IBOutlet weak var playButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +42,17 @@ class ViewController: UIViewController {
                 print("status " + String(status.rawValue))
             }
         }
+        
+        let ds = Bundle.main.path(forResource: "ding", ofType: "wav");
+        do{
+            ding = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: ds!), fileTypeHint: "wav")
+        } catch {
+            print("Unexpected AVAudioPlayer error: \(error).")
+        }
     }
 
     @IBAction func play(_ sender: UIButton) {
-        UIApplication.shared.beginReceivingRemoteControlEvents()
+       /* UIApplication.shared.beginReceivingRemoteControlEvents()
         UIApplication.shared.becomeFirstResponder()
         let session = AVAudioSession.sharedInstance()
         do {
@@ -52,7 +61,8 @@ class ViewController: UIViewController {
         } catch {
             print("Unexpected session error: \(error).")
         }
-        audioPlayer.play()
+        audioPlayer.play()*/
+        ding.play();
     }
 }
 
